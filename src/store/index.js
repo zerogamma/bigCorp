@@ -1,6 +1,6 @@
 import { configureStore } from '@reduxjs/toolkit'
 
-import list from './profileList'
+import list from './employeeList'
 
 const store = configureStore({
     reducer: { list }

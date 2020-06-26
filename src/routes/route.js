@@ -9,6 +9,10 @@ const route = [
     path: '/home',
     component: Pages.Home
   },
+  {
+    path: '/employee',
+    component: Pages.Employee
+  }
 ]
 
 export default route
