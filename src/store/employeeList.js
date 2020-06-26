@@ -25,7 +25,7 @@ const listSlice = createSlice({
         
         addEmployee(newState,action.payload.response,action.meta.arg)
 
-        state.entities = newState;
+        state.entities = Array.isArray(newState) ? newState : [newState];
         debugger;
       }
     }
