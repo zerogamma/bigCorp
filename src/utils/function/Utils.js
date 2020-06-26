@@ -1,8 +1,7 @@
 export const addEmployee = (listStore,employee,searchValue) => {
-    if (!searchValue)
+    if (!searchValue || searchValue === "")
         return employee || listStore;
     return searchTree(listStore,Number(searchValue),employee);
-
 }
 
 const searchTree = (element, matchingId, newChildren) => {

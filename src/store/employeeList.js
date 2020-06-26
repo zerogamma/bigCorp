@@ -19,14 +19,14 @@ const listSlice = createSlice({
     },
     extraReducers: {
       [fetchUserByMangerId.fulfilled]: (state, action) => {
-        if(action.meta.arg === "")
-            state.entities = (action.payload.response)
-        else {
-            let clone = _.cloneDeep(...action.payload.oldState);//{...action.payload.oldState[0]};
-            addEmployee(clone,action.payload.response,action.meta.arg)
-            state.entities = [clone]
-            debugger;
-        }        
+
+        let newState = [];
+        action.meta.arg === "" ? newState = (action.payload.response) :  newState = _.cloneDeep(...action.payload.oldState);
+        
+        addEmployee(newState,action.payload.response,action.meta.arg)
+
+        state.entities = newState;
+        debugger;
       }
     }
 })
