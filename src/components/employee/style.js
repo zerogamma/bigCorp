@@ -3,8 +3,7 @@ import styled from 'styled-components'
 export const EmpContainer = styled.div``
 
 export const EmpList = styled.ul`
-    margin: auto;
-    display: grid;
+    list-style-type: none;
 `
 export const EmpListItem = styled.li`
 `

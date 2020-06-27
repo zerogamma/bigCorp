@@ -4,6 +4,7 @@ import {
     EmpItem,
     EmpList
 } from './style'
+import EmployeeCard from "../employeeCard";
 
 const List = (props) => {       
     const hasChildren = (employee) => {
@@ -13,8 +14,8 @@ const List = (props) => {
     return  props.data.map( list => {
            return <EmpList key={list.id} >
                         <EmpListItem>
-                            <EmpItem onClick={props.action} id={list.id}>
-                                {list.first} {list.last} - {list.manager}
+                            <EmpItem>
+                                <EmployeeCard func={props.action} data={list}/>
                                 { hasChildren(list) && <List data={list.children} action={props.action} />}
                             </EmpItem>
                         </EmpListItem>
@@ -22,16 +23,5 @@ const List = (props) => {
 
     })
 }
-
-
-// {list.children && 
-//     <ELList> {
-//         list.children.map( children =>     
-//             <ELListItem key={children.id}>
-//                     <ELItem onClick={action} id={children.id}>
-//                         {children.first} {children.last} - {children.manager}
-//                     </ELItem>
-//             </ELListItem>)}
-//     </ELList>}
 
 export default List
