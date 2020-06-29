@@ -17,15 +17,4 @@ const List = (props) => {
             </ELContainer>
 }
 
-
-// {list.children && 
-//     <ELList> {
-//         list.children.map( children =>     
-//             <ELListItem key={children.id}>
-//                     <ELItem onClick={action} id={children.id}>
-//                         {children.first} {children.last} - {children.manager}
-//                     </ELItem>
-//             </ELListItem>)}
-//     </ELList>}
-
 export default List
