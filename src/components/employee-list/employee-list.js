@@ -8,12 +8,9 @@ import Employee from '../employee'
 
 const List = (props) => {
     const listStore = useSelector( state => state.list.entities )
-    const action = (event) => {
-        props.search(event.target.id);
-    };
-
+    
     return <ELContainer>
-                <Employee data={listStore} action={action}/>                    
+                <Employee data={listStore} action={props.search}/>                    
             </ELContainer>
 }
 

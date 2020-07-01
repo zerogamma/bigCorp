@@ -6,7 +6,7 @@ import _ from 'lodash'
 export const fetchUserByMangerId = createAsyncThunk(
     'users/fetchUserByMangerId',
     async (managerId, thunkAPI) => {
-      const response = managerId.length ? await Api().getManager(managerId) : await Api().default()
+      const response = !managerId ? await Api().default() : await Api().getManager(managerId);
       return {'oldState':thunkAPI.getState().list.entities, 'response': response.map(r=> Object.assign({'children':[]},r)) }
     }
   )
@@ -26,7 +26,6 @@ const listSlice = createSlice({
         addEmployee(newState,action.payload.response,action.meta.arg)
 
         state.entities = Array.isArray(newState) ? newState : [newState];
-        debugger;
       }
     }
 })
