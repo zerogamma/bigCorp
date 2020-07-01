@@ -23,7 +23,6 @@ const listSlice = createSlice({
     },
     extraReducers: {
       [fetchUserByMangerId.fulfilled]: (state, action) => {
-
         if(action.payload.response !== 'useOldValue'){
           let newState = [];
           action.meta.arg === "" ? newState = (action.payload.response) :  newState = _.cloneDeep(...action.payload.oldState);
