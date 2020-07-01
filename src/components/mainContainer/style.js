@@ -11,5 +11,6 @@ export const LayoutContainer = styled.div`
 export const MainContent = styled.div`
     position: relative;
     padding-bottom: 80px;
-    min-height: 87vh;
+    margin: 0 50px;
+    min-height: 80vh;
 `
