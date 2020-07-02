@@ -16,23 +16,35 @@ export const fetchUserByMangerId = createAsyncThunk(
     }
   )
 
+
+  export const fetchByManagerId = createAsyncThunk(
+  'users/fetchByManagerId',
+  async (managerId, thunkAPI) => {
+    const response = !managerId ? [] : await Api().getManager(managerId);
+    return {'oldState':[], 'response': response.map(r=> Object.assign({'children':[]},r)) }
+  }
+)
+
 const listSlice = createSlice({
     name: 'employeeList',
     initialState:  { entities: [] , callHistory: []},
     reducers:{
     },
     extraReducers: {
+      [fetchByManagerId.fulfilled]:(state, action) => {
+        state.entities = action.payload.response;
+        state.callHistory = [];
+      },
       [fetchUserByMangerId.fulfilled]: (state, action) => {
         if(action.payload.response !== 'useOldValue'){
           let newState = [];
-          action.meta.arg === "" ? newState = (action.payload.response) :  newState = _.cloneDeep(...action.payload.oldState);
+          action.meta.arg === "" ? newState = (action.payload.response) :  newState = _.cloneDeep([...action.payload.oldState]);
           
-          addEmployee(newState,action.payload.response,action.meta.arg)
-
-          state.entities = Array.isArray(newState) ? newState : [newState];
+          newState.map( std => addEmployee(std,action.payload.response,action.meta.arg))
+          state.entities = newState;
           state.callHistory.push(action.meta.arg)
         }
-      }
+      },
     }
 })
 
