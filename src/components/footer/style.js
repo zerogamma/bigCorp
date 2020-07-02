@@ -6,7 +6,7 @@ export const FTInfo = styled.div`
 export const FTContainer = styled.div`
     text-align: center;
     bottom: 0;
-    position: absolute;
     width: 100%;
     height: 80px;
+    position: relative;
 `

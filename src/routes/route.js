@@ -7,7 +7,7 @@ const route = [
   },
   {
     path: '/home',
-    component: Pages.Home
+    component: Pages.Employee
   },
   {
     path: '/employee',

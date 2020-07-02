@@ -2,7 +2,8 @@ import React from "react";
 import { ThemeProvider } from 'styled-components'
 import {
     LayoutContainer,
-    MainContent
+    MainContent,
+    ClearFooter
 } from './style';
 import GlobalStyles from "../../utils/style/GlobalStyle";
 import theme from "../../utils/style/theme";
@@ -15,9 +16,10 @@ const MainContainer = ({children}) => (
          <GlobalStyles />
         <LayoutContainer>
           <Header title='Big Corp'/>
-        <MainContent>
+          <MainContent>
           {children}
-        </MainContent>
+          <ClearFooter />
+          </MainContent>
         <Footer />
         </LayoutContainer>
       </ThemeProvider>

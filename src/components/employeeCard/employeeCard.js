@@ -1,11 +1,12 @@
 import React from 'react';
 import {
     Card,
-    CrdName,
-    CrdId,
-    CrdManager,
+    CrdText,
     CrdIcon,
     CrdData,
+    CrdEmployeeInfo,
+    CrdPrimaryData,
+    CrdSecondaryData
 } from './style'
 import _ from 'lodash'
 
@@ -23,9 +24,17 @@ const EmployeeCard = (props) => {
     return <Card onClick={onClickFunc} >
                 <CrdIcon active={ _.includes(props.active, props.data.id)} />
                 <CrdData>
-                    <CrdId>Id: {props.data.id}</CrdId>
-                    <CrdName>Name: {props.data.first} {props.data.last}</CrdName>
-                    <CrdManager>Manager: {props.data.manager === 0 ? 'Owner' : props.data.manager }</CrdManager>
+                    <CrdText>Id: <span>{props.data.id}</span></CrdText>
+                    <CrdEmployeeInfo>
+                        <CrdPrimaryData>
+                            <CrdText>Name: <span>{props.data.first} {props.data.last}</span></CrdText>
+                            <CrdText>Manager: <span>{props.data.manager === 0 ? 'Owner' : props.data.manager }</span></CrdText>
+                        </CrdPrimaryData>
+                        <CrdSecondaryData>
+                            <CrdText>Department: <span>{props.data.department}</span></CrdText>
+                            <CrdText>Office: <span>{props.data.office}</span></CrdText>
+                        </CrdSecondaryData>
+                    </CrdEmployeeInfo>
                 </CrdData>
             </Card>
 }

@@ -20,7 +20,7 @@ export const fetchUserByMangerId = createAsyncThunk(
   export const fetchByManagerId = createAsyncThunk(
   'users/fetchByManagerId',
   async (managerId, thunkAPI) => {
-    const response = !managerId ? [] : await Api().getManager(managerId);
+    const response = !managerId ? await Api().default() : await Api().getManager(managerId);
     return {'oldState':[], 'response': response.map(r=> Object.assign({'children':[]},r)) }
   }
 )

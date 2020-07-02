@@ -3,7 +3,6 @@ import MainContainer from '../components/mainContainer'
 
 const Home = () => {
     return <MainContainer>
-        
     </MainContainer>
 }
 

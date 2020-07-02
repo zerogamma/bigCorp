@@ -35,9 +35,9 @@ const Employee = () => {
    
 
     return <MainContainer>
-            <SearchBar search={searchBar}/>
-            <List search={search}/> 
-        </MainContainer>
+                <SearchBar search={searchBar}/>
+                <List search={search}/> 
+            </MainContainer>
 }
 
 export default Employee;

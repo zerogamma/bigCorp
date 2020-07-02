@@ -6,22 +6,22 @@ import {
 } from './style'
 import EmployeeCard from "../employeeCard";
 import LinkedLine from "../linkedLine";
-import _ from 'lodash'
+import _ from 'lodash';
+
 
 const List = (props) => {       
     const hasChildren = (employee) => {
         return employee.children && employee.children.length !== 0;
     } 
     const dataLen = props.data.length;
-    
+
     const [activeButton, setActiveButton] = useState([])
     const [sameButton, setSameButtom] = useState(false)
 
 
-    //_.includes(stateObj.callHistory, managerId)
     return  props.data.map( (list, i)=> {
         return <EmpList key={list.id} >
-                        {props.drawLine && <LinkedLine removeLast={dataLen === i+1}/>}
+                        {props.drawLine && <LinkedLine drawExtra={_.includes(activeButton, list.id)} childrenSize={list.children.length} removeLast={dataLen === i+1}/>}
                         <EmpListItem>
                             <EmpItem>
                                 <EmployeeCard 

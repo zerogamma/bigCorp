@@ -16,7 +16,7 @@ const SearchBar = (props) => {
 
     return (
     <SchContainer>
-        <SchBox  ref={inputValueRef} onKeyPress={handleKeyPress} />
+        <SchBox  ref={inputValueRef} onKeyPress={handleKeyPress} placeholder="Manager ID"/>
         <SchButtom onClick={ action }>Search</SchButtom>
     </SchContainer>
 )}
