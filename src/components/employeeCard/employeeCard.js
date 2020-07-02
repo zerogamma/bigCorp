@@ -7,23 +7,21 @@ import {
     CrdIcon,
     CrdData,
 } from './style'
+import _ from 'lodash'
+
 
 const EmployeeCard = (props) => {
 
     const onClickFunc = () => {
-        if(props.active === props.data.id)
-            props.reActionClick(!props.reActive);
-        else if(props.active !== props.data.id && props.reActive === true)
-            props.reActionClick(!props.reActive);
-        
-        props.actionClick(props.data.id);
+        const included = _.includes(props.active, props.data.id)
+
+        included ? props.actionClick( () => props.active.filter(item => item !== props.data.id) ) : props.actionClick( () => [...props.active, props.data.id] );
+
         props.searchFunc(props.data.id);
-        }
-    
-    const switchIcon = props.active !== props.data.id ? false : (props.active === props.data.id && props.reActive ) ? false :  (props.active === props.data.id || props.reActive)
+    }
 
     return <Card onClick={onClickFunc} >
-                <CrdIcon active={switchIcon} />
+                <CrdIcon active={ _.includes(props.active, props.data.id)} />
                 <CrdData>
                     <CrdId>Id: {props.data.id}</CrdId>
                     <CrdName>Name: {props.data.first} {props.data.last}</CrdName>
