@@ -8,7 +8,7 @@ export const fetchUserByMangerId = createAsyncThunk(
     async (managerId, thunkAPI) => {
       const stateObj = thunkAPI.getState().list;
       
-      if (_.includes(stateObj.callHistory, managerId))
+      if (_.includes(stateObj.callHistory, managerId) || managerId === 'cleanUp')
         return {'oldState':stateObj.entities, 'response': 'useOldValue'}
       
       const response = !managerId ? await Api().default() : await Api().getManager(managerId);
@@ -17,24 +17,28 @@ export const fetchUserByMangerId = createAsyncThunk(
   )
 
 
-  export const fetchByManagerId = createAsyncThunk(
+  export const fetchByUserId = createAsyncThunk(
   'users/fetchByManagerId',
   async (managerId, thunkAPI) => {
     const request = managerId.replace(',','&id=');
-    const response = !managerId ? await Api().default() : await Api().getByIds(request);
+    const response = !managerId || managerId === 'cleanUp' ? 
+                        thunkAPI.getState().list.entities.length > 0 && managerId !== 'cleanUp' ? await Api().default() : [] 
+                        : await Api().getByIds(request);
+    
     return {'oldState':[], 'response': response.map(r=> Object.assign({'children':[]},r)) }
   }
 )
 
 const listSlice = createSlice({
     name: 'employeeList',
-    initialState:  { entities: [] , callHistory: []},
+    initialState:  { entities: [] , callHistory: [] ,searchCall: false},
     reducers:{
     },
     extraReducers: {
-      [fetchByManagerId.fulfilled]:(state, action) => {
+      [fetchByUserId.fulfilled]:(state, action) => {
         state.entities = action.payload.response;
         state.callHistory = [];
+        state.searchCall = true;
       },
       [fetchUserByMangerId.fulfilled]: (state, action) => {
         if(action.payload.response !== 'useOldValue'){
@@ -44,6 +48,7 @@ const listSlice = createSlice({
           newState.map( std => addEmployee(std,action.payload.response,action.meta.arg))
           state.entities = newState;
           state.callHistory.push(action.meta.arg)
+          state.searchCall = false;
         }
       },
     }

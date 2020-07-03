@@ -8,7 +8,7 @@ const normalize = `
 const GlobalStyles = createGlobalStyle`
   ${normalize};
   h1 {
-    color: darkgray;
+    color: white;
   } 
 
   h2 {

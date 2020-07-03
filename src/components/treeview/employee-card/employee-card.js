@@ -14,11 +14,11 @@ import _ from 'lodash'
 const EmployeeCard = (props) => {
 
     const onClickFunc = () => {
+        
+        props.searchFunc(props.data.id , 'list');
+        
         const included = _.includes(props.active, props.data.id)
-
         included ? props.actionClick( () => props.active.filter(item => item !== props.data.id) ) : props.actionClick( () => [...props.active, props.data.id] );
-
-        props.searchFunc(props.data.id);
     }
 
     return <Card onClick={onClickFunc} >

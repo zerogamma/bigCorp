@@ -4,13 +4,14 @@ import {
     ELContainer,
 } from './style'
 
-import Employee from '../employee'
+import Employee from '../employee-list'
 
 const List = (props) => {
     const listStore = useSelector( state => state.list.entities )
+    const searchCall = useSelector( state => state.list.searchCall )
     
     return <ELContainer>
-                <Employee data={listStore} action={props.search}/>                    
+                <Employee searchCall={searchCall} data={listStore} action={props.search}/>                    
             </ELContainer>
 }
 

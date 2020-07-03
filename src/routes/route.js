@@ -7,11 +7,11 @@ const route = [
   },
   {
     path: '/home',
-    component: Pages.Employee
+    component: Pages.Tree
   },
   {
-    path: '/employee',
-    component: Pages.Employee
+    path: '/tree',
+    component: Pages.Tree
   }
 ]
 

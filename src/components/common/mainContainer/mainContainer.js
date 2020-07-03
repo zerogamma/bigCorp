@@ -5,8 +5,8 @@ import {
     MainContent,
     ClearFooter
 } from './style';
-import GlobalStyles from "../../utils/style/GlobalStyle";
-import theme from "../../utils/style/theme";
+import GlobalStyles from "../../../utils/style/GlobalStyle";
+import theme from "../../../utils/style/theme";
 import Footer from "../footer"
 import Header from "../header"
 

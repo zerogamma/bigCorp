@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { baseSvg } from '../../utils/style/GlobalStyle'
+import { baseSvg } from '../../../utils/style/GlobalStyle'
 
 const LineDiv = styled.div`
     width: 1px;
