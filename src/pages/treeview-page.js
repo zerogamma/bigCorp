@@ -46,7 +46,7 @@ const Employee = () => {
    
 
     return <MainContainer>
-                <SearchBar search={search} placeholder='UsersId (MultiSearch e.g: 1,2,3)' />
+                <SearchBar search={search} placeholder='User Id (MultiSearch e.g: 1,2,3)' />
                 <List search={search} /> 
             </MainContainer>
 }

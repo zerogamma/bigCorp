@@ -3,7 +3,8 @@ import { ThemeProvider } from 'styled-components'
 import {
     LayoutContainer,
     MainContent,
-    ClearFooter
+    ImgContent,
+    Content
 } from './style';
 import GlobalStyles from "../../../utils/style/GlobalStyle";
 import theme from "../../../utils/style/theme";
@@ -17,8 +18,10 @@ const MainContainer = ({children}) => (
         <LayoutContainer>
           <Header title='Big Corp'/>
           <MainContent>
-          {children}
-          <ClearFooter />
+              <Content>
+                {children}
+              </Content>
+              <ImgContent />
           </MainContent>
         <Footer />
         </LayoutContainer>

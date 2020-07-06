@@ -18,15 +18,18 @@ const List = (props) => {
 
     const [activeButton, setActiveButton] = useState([])
     const [sameButton, setSameButtom] = useState(false)
-    const [treeCall, setTreeCall] = useState(false)
+    const [historySearchCall, setHistorySearchCall] = useState(props.searchCall)
+    
+    let changeValue = false;
 
-    const innerCall = (func, typeCall) => {
-        setActiveButton(func())
+    if (historySearchCall !== props.searchCall){
+        props.searchCall ? changeValue = true : changeValue = false;
+        setHistorySearchCall(props.searchCall)
     }
 
     if (props.searchCall !== undefined)
-        if(activeButton.length !== 0 && props.searchCall === true)
-            innerCall(()=>[])
+        if(activeButton.length !== 0 && changeValue === true )
+            setActiveButton(()=>[])
 
     return  props.data.map( (list, i)=> {
         const isInclude = _.includes(activeButton, list.id)
@@ -38,7 +41,7 @@ const List = (props) => {
                                     reActive={sameButton} 
                                     active={activeButton} 
                                     reActionClick={setSameButtom} 
-                                    actionClick={innerCall} 
+                                    actionClick={setActiveButton} 
                                     searchFunc={props.action} 
                                     data={list}/>
                                 { (hasChildren(list) && isInclude) && <>

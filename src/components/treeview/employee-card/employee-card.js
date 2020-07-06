@@ -2,11 +2,12 @@ import React from 'react';
 import {
     Card,
     CrdText,
-    CrdIcon,
     CrdData,
     CrdEmployeeInfo,
     CrdPrimaryData,
-    CrdSecondaryData
+    CrdSecondaryData,
+    CrdAddIcon,
+    CrdRemoveIcon
 } from './style'
 import _ from 'lodash'
 
@@ -22,7 +23,7 @@ const EmployeeCard = (props) => {
     }
 
     return <Card onClick={onClickFunc} >
-                <CrdIcon active={ _.includes(props.active, props.data.id)} />
+                { _.includes(props.active, props.data.id) ? <CrdRemoveIcon /> : <CrdAddIcon />}
                 <CrdData>
                     <CrdText>Id: <span>{props.data.id}</span></CrdText>
                     <CrdEmployeeInfo>

@@ -3,8 +3,8 @@ import SearchIcon from '@material-ui/icons/Search';
 import TextField from '@material-ui/core/TextField'
 
 export const SchContainer = styled.div`
-    text-align: center;
-    margin-bottom: 25px;
+    text-align: left;
+    margin-bottom: 60px;
 `
 
 export const SchBox = styled(TextField)`

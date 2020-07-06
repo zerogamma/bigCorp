@@ -2,6 +2,8 @@ import styled from 'styled-components'
 import MaterialCard from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import Typography from '@material-ui/core/Typography';
+import AddCircleIcon from '@material-ui/icons/AddCircle';
+import RemoveCircleIcon from '@material-ui/icons/RemoveCircle';
 
 export const Card = styled(MaterialCard)`
     display: grid;
@@ -10,6 +12,7 @@ export const Card = styled(MaterialCard)`
     padding: 8px;
     margin: 15px 0px;
     grid-template-columns: 10% 90%;
+    gap: 5px;
     *{
         pointer-events: none
     }
@@ -29,21 +32,20 @@ export const CrdEmployeeInfo = styled.div`
     display: grid;
     grid-template-columns: 60% 40%;
     width: 340px;
+    padding-left: 10px;
+    padding-top: 10px;
 `
 export const CrdPrimaryData = styled.div``
 export const CrdSecondaryData = styled.div``
 
 export const CrdData = styled(CardContent)`
-    margin-left: 5px;
+    border-left: 1px solid;
+`
+export const CrdAddIcon = styled(AddCircleIcon)`
+    margin: auto;
 `
 
-export const CrdIcon = styled.div`
+export const CrdRemoveIcon = styled(RemoveCircleIcon)`
     margin: auto;
-    padding-bottom: 12px;
-    font-size: 35px;
-    width:10px;
-	&:after {
-		${props => !props.active ? `content: "+";` : `content: "–";`}
-  }
 `
 
