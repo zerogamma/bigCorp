@@ -4,6 +4,8 @@ import CardContent from '@material-ui/core/CardContent';
 import Typography from '@material-ui/core/Typography';
 import AddCircleIcon from '@material-ui/icons/AddCircle';
 import RemoveCircleIcon from '@material-ui/icons/RemoveCircle';
+import { animated } from 'react-spring'
+
 
 export const Card = styled(MaterialCard)`
     display: grid;
@@ -16,6 +18,9 @@ export const Card = styled(MaterialCard)`
     *{
         pointer-events: none
     }
+`
+export const SpringCard = styled(animated.div)`
+    width: fit-content;
 `
 
 export const CrdText = styled(Typography)`
