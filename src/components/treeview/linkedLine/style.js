@@ -32,7 +32,7 @@ export const VerticalExtDiv = styled(LineDiv)`
 `
 
 export const VerticalLine = styled(baseSvg)`
-    height: -webkit-fill-available;
+    height: 450px;
     position: absolute;
     width: 2px;
     margin-left: -60px;

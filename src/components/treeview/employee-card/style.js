@@ -31,7 +31,7 @@ export const CrdText = styled(Typography)`
 export const CrdEmployeeInfo = styled.div`
     display: grid;
     grid-template-columns: 60% 40%;
-    width: 340px;
+    width: 360px;
     padding-left: 10px;
     padding-top: 10px;
 `
