@@ -5,6 +5,7 @@ import App from './components/app';
 import * as serviceWorker from './serviceWorker';
 import store from './store';
 import { Provider } from 'react-redux'
+import '../src/utils/style/spinner.css'
 
 
 ReactDOM.render(

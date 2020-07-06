@@ -8,11 +8,13 @@ export const LayoutContainer = styled.div`
 `
 export const MainContent = styled.div`
     position: relative;
-    margin: 35px 50px;
+    margin: 0 50px;
     min-height: 100%;
     height: 100%;
     display:grid;
     grid-template-columns: 70% 30%;
+    padding-top: 180px;
+    padding-bottom: 32px;
 `
 
 export const Content = styled.div``
